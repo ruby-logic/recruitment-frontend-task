@@ -1,4 +1,4 @@
-lock '~> 3.10.1'
+lock '~> 3.11.1'
 
 set :application, 'rubylogic-frontend-task'
 set :repo_url, 'git@bitbucket.org:rubylogic/rubylogic-frontend-task.git'
@@ -17,4 +17,3 @@ set :linked_dirs, %w[
   tmp/pids
   tmp/sockets
 ]
-
