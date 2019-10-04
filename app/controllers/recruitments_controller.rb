@@ -1,4 +1,6 @@
 class RecruitmentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   rescue_from FrontendChart::UnknownLocation, with: :unknown_location_error
   rescue_from FrontendChart::DateRangeTooNarrow, with: :date_range_too_narrow_error
   rescue_from FrontendChart::DateRangeTooWide, with: :date_range_too_wide_error
