@@ -1,5 +1,5 @@
 class RecruitmentsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  before_action :cors_set_access_control_headers
 
   rescue_from FrontendChart::UnknownLocation, with: :unknown_location_error
   rescue_from FrontendChart::DateRangeTooNarrow, with: :date_range_too_narrow_error
@@ -10,6 +10,13 @@ class RecruitmentsController < ApplicationController
   end
 
   private
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, PATCH, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
 
   def unknown_location_error
     render json: { error: 'Unknown location' }
