@@ -1,6 +1,6 @@
 set :stage, :production
 
-server 'ov2.rubylogic.eu:18022', user: 'apps', roles: %w[app web db]
+server 'ov6.rubylogic.eu:18022', user: 'apps', roles: %w[app web db]
 
 # Initial Values
 # ===============
